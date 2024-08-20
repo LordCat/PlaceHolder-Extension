@@ -1,7 +1,14 @@
 /// <reference types="chrome"/>
 
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import DevToolsApp from './DevTool/DevtoolsApp'
+import Example from './DevTool/routes/example'
+import {
+  HashRouter as Router,
+  Route,
+  Routes,
+} from 'react-router-dom'
 import React from 'react';
 
 chrome.devtools.panels.create(
@@ -15,7 +22,17 @@ chrome.devtools.panels.create(
       const root = panelWindow.document.getElementById('root');
       if (root && !root.hasChildNodes()) {
         console.log("Root element found, rendering React component");
-        createRoot(root).render(<DevToolsApp />);
+        createRoot(root).render(
+          <StrictMode>
+            <Router>
+              <Routes>
+                <Route path="" element={<DevToolsApp />} />
+                <Route path="example" element={<Example />} />
+              </Routes>
+            </Router>
+          </StrictMode>
+          
+        );
       } else {
         console.log("Root element not found or already has children");
       }

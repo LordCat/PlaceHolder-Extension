@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-
+import Example from './PopUp/routes/example'
 import PopUpApp from './PopUp/PopUpApp'
 import {
   HashRouter as Router,
@@ -15,6 +15,7 @@ createRoot(document.getElementById('root')).render(
     <Router>
       <Routes>
         <Route path="" element={<PopUpApp />} />
+        <Route path="example" element={<Example />} />
       </Routes>
     </Router>
   </StrictMode>

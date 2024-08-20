@@ -1,6 +1,8 @@
 import React from 'react'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '../assets/vite.svg'
+import { Link } from 'react-router-dom'
+import '../index.css'
 import './App.css'
 
 function DevToolsApp() {
@@ -20,7 +22,9 @@ function DevToolsApp() {
       <h1 className="text-3xl">Vite + React + Tailwindcss</h1>
       <div className="card">
         <p>
-          Edit <code>src/DevToolApp.jsx</code> and build your Devtool Component here!
+          Edit <code>src/PopUpApp/App.jsx</code> and build your Pop Up Componenet here!
+          Check out <Link to="example">A separate popup page </Link>
+          {/* or even <a href={document.location.href} target="_blank">The webpage/dashboard</a> */}
         </p>
       </div>
       <p>

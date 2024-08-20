@@ -1,13 +1,14 @@
 import reactLogo from '../assets/react.svg'
 import viteLogo from '../assets/vite.svg'
+import { Link } from 'react-router-dom'
 import "./App.css"
 
 
 function PopUpApp() {
 
   return (
-    <div className="w-full">
-      <div className="flex items-center justify-center space-x-5 mb-8 mt-2">
+    <div className="w-full md:flex md:flex-col items-center justify-center md:min-h-screen">
+      <div className="flex items-center justify-center space-x-5 mb-8 mt-2 md:mb-5 md:mt-10">
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="transition-all duration-1000 size-20 hover:size-24 hover:opacity-50" alt="Vite logo" />
         </a>
@@ -22,6 +23,8 @@ function PopUpApp() {
       <div className="card">
         <p>
           Edit <code>src/PopUpApp/App.jsx</code> and build your Pop Up Componenet here!
+          Check out <Link to="example">A separate popup page </Link>
+          or even <a href={document.location.href} target="_blank">The webpage/dashboard</a>
         </p>
       </div>
       <p>
