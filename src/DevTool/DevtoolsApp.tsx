@@ -20,7 +20,7 @@ function DevToolsApp() {
       <h1 className="text-3xl">Vite + React + Tailwindcss</h1>
       <div className="card">
         <p>
-          Edit <code>src/DevToolApp.jsx</code> and build your Devtool Component here!
+          Edit <code>src/DevTool/ToolApp.jsx</code> and build your Devtool Component here!
         </p>
       </div>
       <p>

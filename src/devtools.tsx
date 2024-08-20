@@ -1,10 +1,22 @@
+/*
+ADD CALLS TO THE CHROME API FOR FUTHER ACCESS AND FUNCTIONALITY. 
+ENSURE ALL REQUIRED PERMISSONS ARE ADDED TO MANIFEST.JSON
+https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools
+*/
+
 /// <reference types="chrome"/>
+
 
 import { createRoot } from 'react-dom/client'
 import DevToolsApp from './DevTool/DevtoolsApp'
 import React from 'react';
+import browser from 'webextension-polyfill';
 
-chrome.devtools.panels.create(
+
+// Use Chrome API if available, otherwise fall back to browser API
+const api = typeof chrome !== 'undefined' ? chrome : browser;
+
+api.devtools.panels.create(
   "Placeholder Extension",  //CHANGE HERE TO ADJUST TAB NAME IN DEV TOOLS
   "",
   "devtools.html",
