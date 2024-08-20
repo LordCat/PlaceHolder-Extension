@@ -9,6 +9,7 @@ A basic extension template to fork and build from, using Vite, React, and Tailwi
 - **Modularity** - Comes with an organized structure that can be expand upon.
 - **Routing** - Includes page routing/navigation throgh react components.
 - **Easy Template Use** - Allows you to use reactjs, tailwindcss, and even expand this simple structure, simplifying the intial extension set up allowing you to focus on building your extension!
+- **Typescript Support** - Prefer your type definitions at compile time? Typescript support included.
 
 <br>
 
