@@ -1,36 +1,51 @@
 # PlaceHolder Chrome/FireFox Vite-React Extension w/ tailwindcss
 
-Hello discord!
+A basic extension template to fork and build from, using Vite, React, and Tailwind CSS.
 
-Install dependencies:
-npm i
+## Getting Started
 
-Build project:
+### Prerequisites
+
+- Node.js and npm installed on your system
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/LordCat/PlaceHolder-Extension.git
+cd PlaceHolder-Extension
+```
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Build the Project
+
+```bash
 npm run build
+```
 
-Load extension via extension manager in chrome based webrowser
-Set developer mode to on.
-Select "Load unpacked"
-Select "dist" as folder to import
+### Load the Extension
 
+1. Open your Chrome-based web browser
+2. Go to the Extensions page (chrome://extensions)
+3. Enable "Developer mode" (top right corner)
+4. Click "Load unpacked"
+5. Select the `dist` folder in your project directory
 
+## Resources
 
-# Brief
-This is placeholder extension containing an intial basic extension to fork and build from
+- [Chrome Extension Documentation](https://developer.chrome.com/docs/extensions/)
+- [Vite Documentation](https://vitejs.dev/guide/)
+- [React Documentation](https://reactjs.org/docs/getting-started.html)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
+## Contributing
 
-# Resource
-Place resources that assisted in building this, Some are out of date, but between mdn and chrome docs I got this to work. Please log anan issue if this breaks for some reason or another in the future
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
 
-https://dev.to/ibukunfolay/how-to-build-a-chrome-extension-using-react-and-tailwindcss-55pa
-https://blog.logrocket.com/creating-chrome-extension-react-typescript/
+## License
 
-
-https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
-
-
-
-
-Future basic core features:
-Debug/Production modes to hide console.logs
-Change build to create unpacked development version and Production builds into packed zip files.
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.

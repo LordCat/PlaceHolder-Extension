@@ -28,7 +28,7 @@ function DevToolsApp() {
         </p>
       </div>
       <p>
-        A simple bookmark template created by Dooma and AtlasWiki/mrunoriginal
+        A simple bookmark template created by LordCat and AtlasWiki/mrunoriginal
       </p>
       <p className="read-the-docs">
         Click on the Vite, React, and Tailwindcss logos to learn more
