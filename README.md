@@ -4,6 +4,10 @@ A basic extension template to fork and build from, using Vite, React, and Tailwi
 
 <br>
 
+
+https://github.com/user-attachments/assets/216ab206-27f3-402d-8153-8c05458f431d
+
+
 ## Key Features
 - **Accessbility** - Accessible in the extension popup, devtools, and `chrome-extension` url as a webpage.
 - **Modularity** - Comes with an organized structure that can be expand upon.
