@@ -25,7 +25,7 @@ function PopUpApp() {
         </p>
       </div>
       <p>
-        A simple bookmark template created by Dooma and AtlasWiki
+        A simple bookmark template created by Dooma and AtlasWiki/mrunoriginal
       </p>
       <p className="read-the-docs">
         Click on the Vite, React, and Tailwindcss logos to learn more
