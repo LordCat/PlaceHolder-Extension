@@ -1,13 +1,13 @@
 /// <reference types="chrome"/>
 
 import { createRoot } from 'react-dom/client'
-import DevToolsApp from './DevtoolsApp'
+import DevToolsApp from './DevTool/DevtoolsApp'
 import React from 'react';
 
 chrome.devtools.panels.create(
-  "Placeholder Extension",
+  "Placeholder Extension",  //CHANGE HERE TO ADJUST TAB NAME IN DEV TOOLS
   "",
-  "devtools.html",  // Change this from "devtools.tsx" to "devtools.html"
+  "devtools.html",
   (panel) => {
     console.log("DevTools panel created");
     panel.onShown.addListener((panelWindow) => {

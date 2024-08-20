@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
-import PopUpApp from './PopUpApp.jsx'
+import PopUpApp from './PopUp/PopUpApp'
 import {
   HashRouter as Router,
   Route,

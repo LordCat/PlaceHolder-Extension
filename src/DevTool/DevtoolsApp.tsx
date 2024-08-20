@@ -1,10 +1,9 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import "./App.css"
+import React from 'react'
+import reactLogo from '../assets/react.svg'
+import viteLogo from '../assets/vite.svg'
+import './App.css'
 
-
-function PopUpApp() {
-
+function DevToolsApp() {
   return (
     <div className="w-full">
       <div className="flex items-center justify-center space-x-5 mb-8 mt-2">
@@ -21,7 +20,7 @@ function PopUpApp() {
       <h1 className="text-3xl">Vite + React + Tailwindcss</h1>
       <div className="card">
         <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
+          Edit <code>src/DevToolApp.jsx</code> and build your Devtool Component here!
         </p>
       </div>
       <p>
@@ -37,4 +36,4 @@ function PopUpApp() {
   )
 }
 
-export default PopUpApp;
+export default DevToolsApp;
