@@ -1,14 +1,14 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import Example from './PopUp/routes/example' 
+import Example from './routes/example' 
 
-import PopUpApp from './PopUp/PopUpApp'
+import PopUpApp from './PopUpApp'
 import {
   HashRouter as Router,
   Route,
   Routes,
 } from 'react-router-dom'
-import './index.css'
+import '../index.css'
 
 
 const rootElement = document.getElementById('root');

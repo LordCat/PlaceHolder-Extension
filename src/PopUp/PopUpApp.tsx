@@ -1,7 +1,7 @@
-import reactLogo from '../assets/react.svg'
-import viteLogo from '../assets/vite.svg'
+import reactLogo from '../../public/assets/react.svg'
+import viteLogo from '../../public/assets/vite.svg'
 import { Link } from 'react-router-dom'
-import "./App.css"
+import "../App.css"
 
 
 function PopUpApp() {
