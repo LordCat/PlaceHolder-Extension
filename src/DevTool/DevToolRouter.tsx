@@ -8,8 +8,8 @@ https://developer.chrome.com/docs/extensions/how-to/devtools/extend-devtools
 
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import DevToolsApp from './DevTool/DevtoolsApp'
-import Example from './DevTool/routes/example'
+import DevToolApp from './DevtoolApp'
+import Example from './routes/example'
 import {
   HashRouter as Router,
   Route,
@@ -37,7 +37,7 @@ api.devtools.panels.create(
           <StrictMode>
             <Router>
               <Routes>
-                <Route path="" element={<DevToolsApp />} />
+                <Route path="" element={<DevToolApp />} />
                 <Route path="example" element={<Example />} />
               </Routes>
             </Router>
