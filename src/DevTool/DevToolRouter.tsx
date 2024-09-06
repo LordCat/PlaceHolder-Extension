@@ -9,14 +9,21 @@ import {
   Routes,
 } from 'react-router-dom'
 
-// Create the DevTools panel
+
+// Function to determine the correct path based on the browser
+function getDevToolPath() {
+  const isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+  return isFirefox ? "./DevTool.html" : "/DevTool/DevTool.html";
+}
+
+// Create the DevTools panel using the polyfill
 browser.devtools.panels.create(
   "PlaceHolder Extension",
   "",
-  "DevTool/DevTool.html"
-).then((panel) => {
+  getDevToolPath()
+).then(panel => {
   console.log("DevTools panel created");
-}).catch((error) => {
+}).catch(error => {
   console.error("Error creating DevTools panel:", error);
 });
 
@@ -45,3 +52,4 @@ if (document.readyState === 'loading') {
 } else {
   renderApp();
 }
+

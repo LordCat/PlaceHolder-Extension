@@ -2,6 +2,7 @@ import { defineConfig, Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
 import fs from 'fs'
+import svgr from 'vite-plugin-svgr'
 
 const root = resolve(__dirname, 'src');
 const publicDir = resolve(__dirname, 'public');
@@ -16,6 +17,7 @@ export default defineConfig({
   root,
   plugins: [
     react(),
+    svgr(),
     {
       name: 'html-transform',
       transformIndexHtml(html) {
@@ -29,9 +31,9 @@ export default defineConfig({
         if (fs.existsSync(manifestPath)) {
           const baseManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
           
-          const updateChromePaths = (manifest) => {
+          const updateChromePaths = (manifest: any) => {
             if (manifest.action && manifest.action.default_popup) {
-              manifest.action.default_popup = 'PopUp/popup.html';
+              manifest.action.default_popup = 'PopUp/PopUp.html';
             }
             if (manifest.background && manifest.background.service_worker) {
               manifest.background.service_worker = 'background.js';
@@ -40,12 +42,12 @@ export default defineConfig({
               manifest.content_scripts[0].js = ['content.js'];
             }
             if (manifest.devtools_page) {
-              manifest.devtools_page = 'DevTool/devtools.html';
+              manifest.devtools_page = 'DevTool/DevTool.html';
             }
             return manifest;
           };
 
-          const updateFirefoxPaths = (manifest) => {
+          const updateFirefoxPaths = (manifest: any) => {
             const firefoxManifest = {...manifest};
             
             // browser_action for Firefox
@@ -67,7 +69,7 @@ export default defineConfig({
             // Adjust content_scripts for Firefox
             // Adjust content_scripts for Firefox
             if (firefoxManifest.content_scripts) {
-              firefoxManifest.content_scripts.forEach(script => {
+              firefoxManifest.content_scripts.forEach((script: any) => {
                 if (script.js) {
                   script.js = ['content.js'];
                 }
@@ -81,7 +83,7 @@ export default defineConfig({
               firefoxManifest.browser_action.default_popup = 'PopUp/popup.html';
             }
             if (firefoxManifest.devtools_page) {
-              firefoxManifest.devtools_page = 'DevTool/devtools.html';
+              firefoxManifest.devtools_page = 'DevTool/DevTool.html';
             }
 
             return firefoxManifest;
@@ -167,6 +169,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
+      '@assets': resolve(__dirname, './public/assets'),
     },
   },
   define: {

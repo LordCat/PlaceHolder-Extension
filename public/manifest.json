@@ -4,7 +4,7 @@
     "version": "0.1",
     "author": "LordCat, mrunoriginal/AtlasWiki, 2024",
     "manifest_version": 3,
-    "devtools_page": "DevTool/devtools.html",
+    "devtools_page": "DevTool/DevTool.html",
     "permissions": [
     "storage",
     "activeTab",

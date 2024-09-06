@@ -1,6 +1,7 @@
 {
     "compilerOptions": {
       "types": ["webextension-polyfill", "node"],
+      "typeRoots": ["./node_modules/@types", "./src/types"],
       "target": "ESNext",
       "useDefineForClassFields": true,
       "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -17,5 +18,5 @@
       "noEmit": true,
       "jsx": "react-jsx"
     },
-    "include": ["src"],
+    "include": ["src/**/*", "src/types/svg.d.ts"],
   }
