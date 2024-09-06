@@ -1,5 +1,6 @@
 import React, { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import browser from 'webextension-polyfill'
 import DevToolsApp from './DevtoolApp'
 import Example from './routes/example'
 import {
@@ -9,14 +10,15 @@ import {
 } from 'react-router-dom'
 
 // Create the DevTools panel
-chrome.devtools.panels.create(
+browser.devtools.panels.create(
   "PlaceHolder Extension",
   "",
-  "DevTool/DevTool.html",
-  (panel) => {
-    console.log("DevTools panel created");
-  }
-);
+  "DevTool/DevTool.html"
+).then((panel) => {
+  console.log("DevTools panel created");
+}).catch((error) => {
+  console.error("Error creating DevTools panel:", error);
+});
 
 // Render the React app
 function renderApp() {
@@ -33,7 +35,7 @@ function renderApp() {
       </StrictMode>
     );
   } else {
-    console.log("Root element not found");
+    console.error("Root element not found");
   }
 }
 

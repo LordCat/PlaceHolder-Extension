@@ -1,11 +1,35 @@
-import reactLogo from '../../public/assets/react.svg'
-import viteLogo from '../../public/assets/vite.svg'
-import { Link } from 'react-router-dom'
-import "../App.css"
-
+import React, { useState, useEffect } from 'react';
+import browser from 'webextension-polyfill';
+import { Link } from 'react-router-dom';
+import reactLogo from '../../public/assets/react.svg';
+import viteLogo from '../../public/assets/vite.svg';
+import '../index.css';
+import '../App.css';
 
 function PopUpApp() {
+  const [currentUrl, setCurrentUrl] = useState<string>('Loading...');
+  const [browserInfo, setBrowserInfo] = useState<string>('Loading...');
 
+  useEffect(() => {
+    // Fetch current URL
+    browser.runtime.sendMessage({ type: 'GET_CURRENT_URL' })
+      .then((response: any) => {
+        if (response && response.type === 'CURRENT_URL') {
+          setCurrentUrl(response.payload);
+        }
+      })
+      .catch(error => console.error('Error fetching current URL:', error));
+
+    // Fetch browser info
+    browser.runtime.sendMessage({ type: 'GET_BROWSER_INFO' })
+      .then((response: any) => {
+        if (response && response.type === 'BROWSER_INFO') {
+          setBrowserInfo(response.payload);
+        }
+      })
+      .catch(error => console.error('Error fetching browser info:', error));
+  }, []);
+  
   return (
     <div className="w-full md:flex md:flex-col items-center justify-center md:min-h-screen">
       <div className="flex items-center justify-center space-x-5 mb-8 mt-2 md:mb-5 md:mt-10">
@@ -22,6 +46,8 @@ function PopUpApp() {
       <h1 className="text-3xl">Vite + React + Tailwindcss</h1>
       <div className="card">
         <p>
+          <p>Browser Info: {browserInfo}</p>
+          <p>Current URL: {currentUrl}</p>
           Edit <code>src/PopUpApp/App.jsx</code> and build your Pop Up Componenet here!
           Check out <Link to="example">A separate popup page </Link>
           or even <a href={document.location.href} target="_blank">The webpage/dashboard</a>

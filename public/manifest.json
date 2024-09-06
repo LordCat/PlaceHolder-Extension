@@ -16,12 +16,14 @@
     "default_title": "JS Toolkit for Hackers"
   },
   "background": {
-    "service_worker": "PopUp/background.js"
+    "service_worker": "background-main.js",
+    "type": "module"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["PopUp/content.js"]
+      "js": ["content-main.js"],
+      "type": ["module"]
     }
   ],
   "content_security_policy": {
