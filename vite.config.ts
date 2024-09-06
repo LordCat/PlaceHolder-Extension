@@ -40,6 +40,7 @@ export default defineConfig({
             }
             if (manifest.content_scripts && manifest.content_scripts[0] && manifest.content_scripts[0].js) {
               manifest.content_scripts[0].js = ['content.js'];
+              manifest.content_scripts[0].type = 'module';
             }
             if (manifest.devtools_page) {
               manifest.devtools_page = 'DevTool/DevTool.html';
