@@ -32,68 +32,55 @@ export default defineConfig({
           const baseManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
           
           const updateChromePaths = (manifest: any) => {
-            if (manifest.action && manifest.action.default_popup) {
-              manifest.action.default_popup = 'PopUp/PopUp.html';
+            const chromeManifest = {...manifest};
+            if (chromeManifest.action && chromeManifest.action.default_popup) {
+              chromeManifest.action.default_popup = 'PopUp/PopUp.html';
             }
-            if (manifest.background && manifest.background.service_worker) {
-              manifest.background.service_worker = 'background.js';
+            if (chromeManifest.background) {
+              chromeManifest.background = {
+                scripts: ['background.js'],
+                type: ['module']
+              };
             }
-            if (manifest.content_scripts && manifest.content_scripts[0] && manifest.content_scripts[0].js) {
-              manifest.content_scripts[0].js = ['content.js'];
-              manifest.content_scripts[0].type = 'module';
+            if (chromeManifest.content_scripts && chromeManifest.content_scripts[0]) {
+              chromeManifest.content_scripts[0] = {
+                ...chromeManifest.content_scripts[0],
+                js: ['content.js', 'module'],
+                
+              };
             }
-            if (manifest.devtools_page) {
-              manifest.devtools_page = 'DevTool/DevTool.html';
+            if (chromeManifest.devtools_page) {
+              chromeManifest.devtools_page = 'DevTool/DevTool.html';
             }
-            return manifest;
+            delete chromeManifest.content_security_policy;
+            return chromeManifest;
           };
 
           const updateFirefoxPaths = (manifest: any) => {
             const firefoxManifest = {...manifest};
-            
-            // browser_action for Firefox
-            if (firefoxManifest.action) {
+            if (firefoxManifest.action && firefoxManifest.action.default_popup) {
               firefoxManifest.action.default_popup = 'PopUp/popup.html';
             }
-
-            // Adjust background for Firefox
             if (firefoxManifest.background) {
               firefoxManifest.background = {
                 scripts: ['background.js'],
                 type: 'module'
               };
             }
-
-            // Remove content_security_policy for Firefox
-            delete firefoxManifest.content_security_policy;
-
-            // Adjust content_scripts for Firefox
-            // Adjust content_scripts for Firefox
-            if (firefoxManifest.content_scripts) {
-              firefoxManifest.content_scripts.forEach((script: any) => {
-                if (script.js) {
-                  script.js = ['content.js'];
-                }
-                // Remove 'type' field if present
-                delete script.type;
-              });
-            }
-
-            // Update paths
-            if (firefoxManifest.browser_action && firefoxManifest.browser_action.default_popup) {
-              firefoxManifest.browser_action.default_popup = 'PopUp/popup.html';
+            if (firefoxManifest.content_scripts && firefoxManifest.content_scripts[0]) {
+              firefoxManifest.content_scripts[0].js = ['content.js'];
+              delete firefoxManifest.content_scripts[0].type;
             }
             if (firefoxManifest.devtools_page) {
               firefoxManifest.devtools_page = 'DevTool/DevTool.html';
             }
-
+            delete firefoxManifest.content_security_policy;
             return firefoxManifest;
           };
 
           const chromeManifest = updateChromePaths({...baseManifest});
           const firefoxManifest = updateFirefoxPaths({...baseManifest});
 
-          // Use optional chaining and nullish coalescing to safely check options.dir
           const outputDir = options.dir?.toString() ?? '';
 
           if (outputDir.includes('chrome-dist')) {
