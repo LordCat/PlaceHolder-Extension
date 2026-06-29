@@ -9,9 +9,9 @@ https://github.com/user-attachments/assets/216ab206-27f3-402d-8153-8c05458f431d
 
 
 ## Key Features
-- **Accessbility** - Accessible in the extension popup, devtools, and `chrome-extension` url as a webpage.
+- **Accessibility** - Accessible in the extension popup, devtools, and `chrome-extension` url as a webpage.
 - **Modularity** - Comes with an organized structure that can be expand upon.
-- **Routing** - Includes page routing/navigation throgh react components.
+- **Routing** - Includes page routing/navigation through react components.
 - **Easy Template Use** - Allows you to use reactjs, tailwindcss, and even expand this simple structure, simplifying the intial extension set up allowing you to focus on building your extension!
 - **Typescript Support** - Prefer your type definitions at compile time? Typescript support included.
 
@@ -44,11 +44,18 @@ npm run build
 
 ### Load the Extension
 
+**Chrome:**
 1. Open your Chrome-based web browser
-2. Go to the Extensions page (chrome://extensions)
+2. Go to the Extensions page (`chrome://extensions`)
 3. Enable "Developer mode" (top right corner)
 4. Click "Load unpacked"
 5. Select the `dist` folder in your project directory
+
+**Firefox:**
+1. Open Firefox
+2. Go to (`about:debugging#/runtime/this-firefox`)
+3. Click "Load Temporary Add-on"
+4. Select the `manifest.json` file inside the `dist` folder
 
 ## Resources
 
