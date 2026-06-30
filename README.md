@@ -1,6 +1,6 @@
 # Chrome/FireFox Vite-React w/ tailwindcss Extension Template
 
-A basic extension template to fork and build from, using Vite, React, and Tailwind CSS, created by LordCat and AtlasWiki/mrunoriginal. Comes with three UI templates - developer tools tab/panel, extension popup, and accessible webpage through `chrome-extension` url.
+A basic extension template to fork and build from, using Vite, React, and Tailwind CSS, created by LordCat and AtlasWiki/mrunoriginal. Comes with three UI templates - developer tools tab/panel, extension popup, and accessible webpage through `chrome-extension` url. Also includes a background service worker and content script with typed message passing between them.
 
 <br>
 
@@ -9,11 +9,12 @@ https://github.com/user-attachments/assets/216ab206-27f3-402d-8153-8c05458f431d
 
 
 ## Key Features
-- **Accessibility** - Accessible in the extension popup, devtools, and `chrome-extension` url as a webpage.
-- **Modularity** - Comes with an organized structure that can be expand upon.
+- **Accessibility** - Accessible as a DevTools panel, extension popup, and `chrome-extension` url as a webpage.
+- **Modularity** - Comes with an organized structure that can be expanded upon.
 - **Routing** - Includes page routing/navigation through react components.
 - **Easy Template Use** - Allows you to use reactjs, tailwindcss, and even expand this simple structure, simplifying the intial extension set up allowing you to focus on building your extension!
 - **Typescript Support** - Prefer your type definitions at compile time? Typescript support included.
+- **Background & Content Scripts** - Includes a background service worker and content script with typed message passing between them out of the box.
 
 <br>
 
