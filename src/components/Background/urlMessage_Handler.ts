@@ -46,5 +46,4 @@ async function getCurrentTabUrl(): Promise<string> {
   }
   return 'Unknown URL';
 
-async function onTabClose(): Promise:<string>
 }
