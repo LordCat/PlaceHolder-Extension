@@ -20,7 +20,7 @@ export function urlMessage_Handler() {
           const response: CurrentUrlMessage = { type: 'CURRENT_URL', payload: url };
           sendResponse(response);
         });
-        return true; // Indicates we wish to send a response asynchronously
+        return true; 
       }
     }
   });
@@ -32,7 +32,7 @@ function handleUrlMessage(tabId: number, url: string) {
 }
 
 async function getCurrentTabUrl(): Promise<string> {
-  const tabs = await browser.tabs.query({active: true, currentWindow: true});
+  const tabs = await browser.tabs.query({active: true, lastFocusedWindow: true});
   if (tabs[0] && tabs[0].id) {
     if (tabUrls.has(tabs[0].id)) {
       return tabUrls.get(tabs[0].id) || 'Unknown URL';
