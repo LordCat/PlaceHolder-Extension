@@ -24,6 +24,10 @@ export function urlMessage_Handler() {
       }
     }
   });
+
+    browser.tabs.onRemoved.addListener((tabId) =>{
+      tabUrls.delete(tabId);
+  })
 }
 
 function handleUrlMessage(tabId: number, url: string) {
@@ -41,4 +45,6 @@ async function getCurrentTabUrl(): Promise<string> {
     }
   }
   return 'Unknown URL';
+
+async function onTabClose(): Promise:<string>
 }
